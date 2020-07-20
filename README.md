@@ -25,3 +25,9 @@ Sample .NET Core REST API application implemented with basic Generic Repository 
 * Dependency Inversion
 * Single-responsibility principle
 
+### TODO
+
+* Unit Test
+* In-Memory Caching
+* Event-driven architecture?
+
