@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OPLOGInventory.Domain\OPLOGInventory.Domain.csproj" />
+    <ProjectReference Include="..\OPLOGInventory.Infrastructure\OPLOGInventory.Infrastructure.csproj" />
+    <ProjectReference Include="..\OPLOGInventory.Repository\OPLOGInventory.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
