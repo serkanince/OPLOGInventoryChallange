@@ -47,9 +47,6 @@ namespace OPLOGInventory.API
 
             services.AddDbContext<MSSQLDBContext>(options => options.UseLazyLoadingProxies()
 
-            //PROD
-            //.UseSqlServer("Server=amazonpandifdb.cqvgxnec4fgu.us-east-2.rds.amazonaws.com;Initial Catalog=Pandif;Persist Security Info=False;User ID=pandifdb;Password=E_3p1n9m;Connection Timeout=30;"));
-
             //TEST
             .UseSqlServer("Server=.\\SQLEXPRESS; Database=OPLOGInventory; Trusted_Connection=True;"));
 
