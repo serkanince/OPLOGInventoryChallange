@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Repository",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Test", "OPLOGInventory\OPLOGInventory.Test\OPLOGInventory.Test.csproj", "{A5635AB5-B480-4958-8538-92E1308F5FF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGInventory.Domain", "OPLOGInventory\OPLOGInventory.Domain\OPLOGInventory.Domain.csproj", "{48D6FD71-818C-4FCC-ABBB-34EA2EF82A21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Domain", "OPLOGInventory\OPLOGInventory.Domain\OPLOGInventory.Domain.csproj", "{48D6FD71-818C-4FCC-ABBB-34EA2EF82A21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

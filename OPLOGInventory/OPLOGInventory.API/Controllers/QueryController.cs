@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OPLOGInventory.Application.QueryApplications;
@@ -12,6 +13,7 @@ namespace OPLOGInventory.API.Controllers
 {
     [Route("api/v1/query")]
     [ApiController]
+    [Authorize]
     public class QueryController : ControllerBase
     {
         public QueryController(IQueryApplication queryApplication)
