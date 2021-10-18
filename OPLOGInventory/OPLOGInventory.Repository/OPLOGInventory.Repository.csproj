@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OPLOGInventory.Domain\OPLOGInventory.Domain.csproj" />
-    <ProjectReference Include="..\OPLOGInventory.Infrastructure\OPLOGInventory.Infrastructure.csproj" />
+    <ProjectReference Include="..\OPLOGInventory.Infrastructure\OPLOGInventory.Data.csproj" />
   </ItemGroup>
 
 </Project>
