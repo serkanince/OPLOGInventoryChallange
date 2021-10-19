@@ -15,6 +15,7 @@ using OPLOGInventory.Application.InventoryItems;
 using OPLOGInventory.Application.Products;
 using OPLOGInventory.Application.QueryApplications;
 using OPLOGInventory.Application.SalesOrders;
+using OPLOGInventory.Domain.Entity;
 using OPLOGInventory.Infrastructure.DB;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.ApiUser;
@@ -62,12 +63,12 @@ namespace OPLOGInventory.API
             services.AddTransient<IContainerApplication, ContainerApplication>();
             services.AddTransient<IQueryApplication, QueryApplication>();
 
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<ISalesOrderRepository, SalesOrderRepository>();
-            services.AddTransient<IContainerRepository, ContainerRepository>();
-            services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
-            services.AddTransient<ILocationRepository, LocationRepository>();
-            services.AddTransient<IApiUserRepository, ApiUserRepository>();
+            //services.AddTransient<IProductRepository, ProductRepository>();
+            //services.AddTransient<ISalesOrderRepository, SalesOrderRepository>();
+            //services.AddTransient<IContainerRepository<Container>, ContainerRepository<Container>>();
+            //services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
+            //services.AddTransient<ILocationRepository, LocationRepository>();
+            //services.AddTransient<IApiUserRepository, ApiUserRepository>();
 
             //INJECT//
 

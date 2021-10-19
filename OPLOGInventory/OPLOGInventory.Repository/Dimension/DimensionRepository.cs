@@ -4,37 +4,21 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Infrastructure.DB;
+using OPLOGInventory.Repository.Container;
 
 namespace OPLOGInventory.Repository.Dimension
 {
-    public class DimensionRepository : IDimensionRepository
+    public class DimensionRepository<TEntity> : RepositoryCrud<TEntity>, IDimensionRepository<TEntity> where TEntity : class
     {
-        public Domain.Entity.Dimension create(Domain.Entity.Dimension entity)
+        MSSQLDBContext _context;
+
+        public DimensionRepository(MSSQLDBContext context) : base(context: context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Domain.Entity.Dimension delete(Domain.Entity.Dimension entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<Domain.Entity.Dimension> GetAll(Expression<Func<Domain.Entity.Dimension, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Domain.Entity.Dimension readById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Domain.Entity.Dimension update(Domain.Entity.Dimension entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        IQueryable<Domain.Entity.Dimension> IRepository<Domain.Entity.Dimension, Guid>.GetAll()
+        public Domain.Entity.Container ReadByLabel(string label) 
         {
             throw new NotImplementedException();
         }

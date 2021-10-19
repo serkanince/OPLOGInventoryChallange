@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OPLOGInventory.Application.ResultModel;
+using OPLOGInventory.Domain.Entity;
 using OPLOGInventory.Infrastructure.DTO.Output;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.Container;
@@ -12,7 +13,7 @@ namespace OPLOGInventory.Application.QueryApplications
 {
     public class QueryApplication : IQueryApplication
     {
-        public QueryApplication(IUnitOfWork uow, IContainerRepository containerRepository, IInventoryItemRepository inventoryItemRepository)
+        public QueryApplication(IUnitOfWork uow, IContainerRepository<Container> containerRepository, IInventoryItemRepository<InventoryItem> inventoryItemRepository)
         {
             _unitofwork = uow;
             _containerRepository = containerRepository;
@@ -21,9 +22,9 @@ namespace OPLOGInventory.Application.QueryApplications
 
         private IUnitOfWork _unitofwork { get; }
 
-        private IContainerRepository _containerRepository { get; }
+        private IContainerRepository<Container> _containerRepository { get; }
 
-        private IInventoryItemRepository _inventoryItemRepository { get; }
+        private IInventoryItemRepository<InventoryItem> _inventoryItemRepository { get; }
 
         public IDataResult<List<CurrentStockPerProductDto>> CurrentStockInStock()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.SalesOrder
 {
-    public interface ISalesOrderRepository : IRepository<Domain.Entity.SalesOrder, Guid>
+    public interface ISalesOrderRepository<TEntity> : IRepositoryCrud<TEntity> where TEntity : class
     {
         Domain.Entity.SalesOrder readByReferenceNo(string referenceNo);
         Domain.Entity.SalesOrder updateShippedStatus(Domain.Entity.SalesOrder entity);

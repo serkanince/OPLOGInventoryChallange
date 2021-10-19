@@ -13,7 +13,7 @@ namespace OPLOGInventory.Application.Products
 {
     public class ProductApplication : IProductApplication
     {
-        public ProductApplication(IUnitOfWork uow, IProductRepository productRepository, IMapper mapper)
+        public ProductApplication(IUnitOfWork uow, IProductRepository<Product> productRepository, IMapper mapper)
         {
             _unitofwork = uow;
             _productRepository = productRepository;
@@ -23,13 +23,13 @@ namespace OPLOGInventory.Application.Products
 
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
-        private IProductRepository _productRepository { get; }
+        private IProductRepository<Product> _productRepository { get; }
 
         public IResult CreateProduct(ProductDto input)
         {
             try
             {
-                var _entity = _productRepository.create(_mapper.Map<ProductDto, Product>(input));
+                var _entity = _productRepository.Insert(_mapper.Map<ProductDto, Product>(input));
 
                 _unitofwork.SaveChanges();
 
@@ -49,7 +49,7 @@ namespace OPLOGInventory.Application.Products
 
                 if (_entity != null)
                 {
-                    _entity = _productRepository.delete(_entity);
+                    _entity = _productRepository.Remove(_entity);
                     _unitofwork.SaveChanges();
                     return Result.Success();
                 }

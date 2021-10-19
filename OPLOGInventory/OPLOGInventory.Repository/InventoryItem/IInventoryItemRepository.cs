@@ -5,8 +5,7 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.InventoryItem
 {
-    public interface IInventoryItemRepository : IRepository<Domain.Entity.InventoryItem, Guid>
+    public interface IInventoryItemRepository<TEntity> : IRepositoryCrud<TEntity> where TEntity : class
     {
-        IQueryable<Domain.Entity.InventoryItem> getStockInventoryItem(Guid productId, int quantity);
     }
 }

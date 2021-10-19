@@ -17,7 +17,7 @@ namespace OPLOGInventory.Application.SalesOrders
 {
     public class SalesOrderApplication : ISalesOrderApplication
     {
-        public SalesOrderApplication(IUnitOfWork uow, ISalesOrderRepository salesorderRepository, IProductRepository productRepository, IInventoryItemRepository inventoryRepository, IMapper mapper)
+        public SalesOrderApplication(IUnitOfWork uow, ISalesOrderRepository<SalesOrder> salesorderRepository, IProductRepository<Product> productRepository, IInventoryItemRepository<InventoryItem> inventoryRepository, IMapper mapper)
         {
             _unitofwork = uow;
             _salesorderRepository = salesorderRepository;
@@ -28,11 +28,11 @@ namespace OPLOGInventory.Application.SalesOrders
 
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
-        private ISalesOrderRepository _salesorderRepository { get; }
+        private ISalesOrderRepository<SalesOrder> _salesorderRepository { get; }
 
-        private IInventoryItemRepository _inventoryRepository { get; }
+        private IInventoryItemRepository<InventoryItem> _inventoryRepository { get; }
 
-        private IProductRepository _productRepository { get; }
+        private IProductRepository<Product> _productRepository { get; }
 
         public IResult CancelSalesOrder(string referenceNo)
         {
@@ -49,7 +49,7 @@ namespace OPLOGInventory.Application.SalesOrders
                     {
                         inventoryItem.Type = Domain.Enum.InventoryItemType.Stock;
                         inventoryItem.LineItemId = null;
-                        _inventoryRepository.update(inventoryItem);
+                        _inventoryRepository.Update(inventoryItem);
                     }
                 }
 
@@ -75,18 +75,22 @@ namespace OPLOGInventory.Application.SalesOrders
                     input.LineItems[i].ProductId = product.ID;
                 }
 
-                var _entity = _salesorderRepository.create(_mapper.Map<SalesOrderDto, SalesOrder>(input));
+                var _entity = _salesorderRepository.Insert(_mapper.Map<SalesOrderDto, SalesOrder>(input));
 
                 foreach (var lineItemEntity in _entity.LineItems)
                 {
-                    IQueryable<InventoryItem> foundInventoryItems = _inventoryRepository.getStockInventoryItem(lineItemEntity.ProductId, (int)lineItemEntity.Quantity);
+                    IQueryable<InventoryItem> foundInventoryItems = _inventoryRepository
+                        .FindBy(x => x.ProductId == lineItemEntity.ProductId && x.Type == Domain.Enum.InventoryItemType.Stock)
+                        .OrderBy(x => x.Container.Location.x)
+                        .ThenBy(x => x.Container.Location.y)
+                        .ThenBy(x => x.Container.Location.z).Take((int)lineItemEntity.Quantity);
 
                     foreach (var inventoryItem in foundInventoryItems)
                     {
                         inventoryItem.LineItemId = lineItemEntity.ID;
                         inventoryItem.Type = Domain.Enum.InventoryItemType.Reserved;
 
-                        _inventoryRepository.update(inventoryItem);
+                        _inventoryRepository.Update(inventoryItem);
                     }
                 }
 

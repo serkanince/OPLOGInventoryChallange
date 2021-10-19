@@ -15,7 +15,8 @@ namespace OPLOGInventory.Application.InventoryItems
 {
     public class InventoryItemApplication : IInventoryItemApplication
     {
-        public InventoryItemApplication(IUnitOfWork uow, IInventoryItemRepository inventoryItemRepository, IMapper mapper, IProductRepository productRepository, IContainerRepository containerRepository)
+        public InventoryItemApplication(IUnitOfWork uow, IInventoryItemRepository<InventoryItem> inventoryItemRepository, IMapper mapper, IProductRepository<Product> productRepository,
+            IContainerRepository<Container> containerRepository)
         {
             _unitofwork = uow;
             _inventoryItemRepository = inventoryItemRepository;
@@ -26,11 +27,11 @@ namespace OPLOGInventory.Application.InventoryItems
 
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
-        private IInventoryItemRepository _inventoryItemRepository { get; }
+        private IInventoryItemRepository<InventoryItem> _inventoryItemRepository { get; }
 
-        private IProductRepository _productRepository { get; }
+        private IProductRepository<Product> _productRepository { get; }
 
-        private IContainerRepository _containerRepository { get; }
+        private IContainerRepository<Container> _containerRepository { get; }
 
 
         public IResult CreateProduct(InventoryItemDto input)
@@ -41,14 +42,14 @@ namespace OPLOGInventory.Application.InventoryItems
                 if (product == null)
                     return Result.Error("Product SKU it is not fount !");
 
-                var container = _containerRepository.readByLabel(input.Label);
+                var container = _containerRepository.ReadByLabel(input.Label);
                 if (container == null)
                     return Result.Error("Container Label it is not fount !");
 
                 input.ContainerId = container.ID;
                 input.ProductId = product.ID;
 
-                var _entity = _inventoryItemRepository.create(_mapper.Map<InventoryItemDto, InventoryItem>(input));
+                var _entity = _inventoryItemRepository.Insert(_mapper.Map<InventoryItemDto, InventoryItem>(input));
 
                 _unitofwork.SaveChanges();
 
