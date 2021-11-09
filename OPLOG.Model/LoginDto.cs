@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OPLOGInventory.Infrastructure.DTO
+namespace OPLOGInventory.Model
 {
     public class LoginDto
     {

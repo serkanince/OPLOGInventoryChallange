@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace OPLOGInventory.Repository.SalesOrder
 {
-    public class SalesOrderRepository : RepositoryCrud<Domain.Entity.SalesOrder>, ISalesOrderRepository
+    public class SalesOrderRepository : RepositoryCrud<Data.Entity.SalesOrder>, ISalesOrderRepository
     {
         PostgreSqlDBContext _context;
 
@@ -16,12 +16,12 @@ namespace OPLOGInventory.Repository.SalesOrder
             _context = context;
         }
 
-        public Domain.Entity.SalesOrder readByReferenceNo(string referenceNo)
+        public Data.Entity.SalesOrder readByReferenceNo(string referenceNo)
         {
             return _context.SalesOrder.Where(x => x.ReferanceNo == referenceNo).FirstOrDefault();
         }
 
-        public Domain.Entity.SalesOrder updateCancelStatus(Domain.Entity.SalesOrder entity)
+        public Data.Entity.SalesOrder updateCancelStatus(Data.Entity.SalesOrder entity)
         {
             CheckRule(new SalesOrdersNotBeenShippedYet(entity.IsShipped));
             CheckRule(new SalesOrdersCancelledOnylyOnce(entity.CancelledDate));
@@ -31,7 +31,7 @@ namespace OPLOGInventory.Repository.SalesOrder
             return entity;
         }
 
-        public Domain.Entity.SalesOrder updateShippedStatus(Domain.Entity.SalesOrder entity)
+        public Data.Entity.SalesOrder updateShippedStatus(Data.Entity.SalesOrder entity)
         {
             CheckRule(new SalesOrderCanceledConnotBeShipped(entity.CancelledDate));
             CheckRule(new SalesOrderOnlyOnceShipped(entity.IsShipped));

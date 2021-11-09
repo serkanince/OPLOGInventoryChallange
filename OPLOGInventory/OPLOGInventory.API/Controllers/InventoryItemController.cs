@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OPLOGInventory.Application.InventoryItems;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Domain.Enum;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Model;
 
 namespace OPLOGInventory.API.Controllers
 {

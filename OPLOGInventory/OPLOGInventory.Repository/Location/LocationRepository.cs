@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 
 namespace OPLOGInventory.Repository.Location
 {
-    public class LocationRepository : RepositoryCrud<Domain.Entity.Location>, ILocationRepository
+    public class LocationRepository : RepositoryCrud<Data.Entity.Location>, ILocationRepository
     {
         PostgreSqlDBContext _context;
 
@@ -16,7 +16,7 @@ namespace OPLOGInventory.Repository.Location
         {
             _context = context;
         }
-        public Domain.Entity.Location readByXYZ(decimal x, decimal y, decimal z)
+        public Data.Entity.Location readByXYZ(decimal x, decimal y, decimal z)
         {
             return _context.Location.Where(l => l.x == x && l.y == y && l.z == z).FirstOrDefault();
         }

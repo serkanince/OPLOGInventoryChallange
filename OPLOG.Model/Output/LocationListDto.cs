@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.DTO
+namespace OPLOGInventory.Model.Output
 {
-    public class LocationDto
+    public class LocationListDto
     {
-        [Required]
+
+
         public decimal x { get; set; }
 
-        [Required]
         public decimal y { get; set; }
 
-        [Required]
         public decimal z { get; set; }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using AutoMapper;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Domain.Entity;
-using OPLOGInventory.Infrastructure.DTO;
-using OPLOGInventory.Infrastructure.DTO.Output;
+using OPLOGInventory.Data.Entity;
+using OPLOGInventory.Model;
+using OPLOGInventory.Model.Output;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.InventoryItem;
 using OPLOGInventory.Repository.Product;
@@ -47,7 +47,7 @@ namespace OPLOGInventory.Application.SalesOrders
                 {
                     foreach (var inventoryItem in lineItem.InventoryItem)
                     {
-                        inventoryItem.Type = Domain.Enum.InventoryItemType.Stock;
+                        inventoryItem.Type = Model.InventoryItemType.Stock;
                         inventoryItem.LineItemId = null;
                         _inventoryRepository.Update(inventoryItem);
                     }
@@ -80,7 +80,7 @@ namespace OPLOGInventory.Application.SalesOrders
                 foreach (var lineItemEntity in _entity.LineItems)
                 {
                     IQueryable<InventoryItem> foundInventoryItems = _inventoryRepository
-                        .FindBy(x => x.ProductId == lineItemEntity.ProductId && x.Type == Domain.Enum.InventoryItemType.Stock)
+                        .FindBy(x => x.ProductId == lineItemEntity.ProductId && x.Type == Model.InventoryItemType.Stock)
                         .OrderBy(x => x.Container.Location.x)
                         .ThenBy(x => x.Container.Location.y)
                         .ThenBy(x => x.Container.Location.z).Take((int)lineItemEntity.Quantity);
@@ -88,7 +88,7 @@ namespace OPLOGInventory.Application.SalesOrders
                     foreach (var inventoryItem in foundInventoryItems)
                     {
                         inventoryItem.LineItemId = lineItemEntity.ID;
-                        inventoryItem.Type = Domain.Enum.InventoryItemType.Reserved;
+                        inventoryItem.Type = Model.InventoryItemType.Reserved;
 
                         _inventoryRepository.Update(inventoryItem);
                     }

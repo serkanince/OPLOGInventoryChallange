@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Domain.Entity;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Data.Entity;
+using OPLOGInventory.Model;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.Container;
 using OPLOGInventory.Repository.InventoryItem;

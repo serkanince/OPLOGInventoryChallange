@@ -9,11 +9,11 @@ namespace OPLOGInventory.Repository.Rules
     public class SalesOrdersAvailableStockForProduct : IBusinessRule
     {
         private readonly PostgreSqlDBContext _context;
-        private List<Domain.Entity.LineItem> _lineItems;
+        private List<Data.Entity.LineItem> _lineItems;
 
         private string _notAvailableProduct;
 
-        public SalesOrdersAvailableStockForProduct(PostgreSqlDBContext context, List<Domain.Entity.LineItem> lineItems)
+        public SalesOrdersAvailableStockForProduct(PostgreSqlDBContext context, List<Data.Entity.LineItem> lineItems)
         {
             _lineItems = lineItems;
             _context = context;
@@ -28,7 +28,7 @@ namespace OPLOGInventory.Repository.Rules
 
             foreach (var lineItem in groupedLineItems)
             {
-                var totalAvailableStock = _context.InventoryItem.Where(x => x.Type == Domain.Enum.InventoryItemType.Stock && x.ProductId == lineItem.Key).Count();
+                var totalAvailableStock = _context.InventoryItem.Where(x => x.Type == Model.InventoryItemType.Stock && x.ProductId == lineItem.Key).Count();
 
                 if (totalAvailableStock < lineItem.Total)
                 {

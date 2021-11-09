@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 
 namespace OPLOGInventory.Repository.LineItem
 {
-    public class LineItemRepository : RepositoryCrud<Domain.Entity.LineItem>, ILineItemRepository
+    public class LineItemRepository : RepositoryCrud<Data.Entity.LineItem>, ILineItemRepository
     {
         PostgreSqlDBContext _context;
 

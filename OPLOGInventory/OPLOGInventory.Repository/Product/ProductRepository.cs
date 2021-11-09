@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 using OPLOGInventory.Repository.Location;
 using OPLOGInventory.Repository.Rules;
 
 namespace OPLOGInventory.Repository.Product
 {
-    public class ProductRepository : RepositoryCrud<Domain.Entity.Product>, IProductRepository
+    public class ProductRepository : RepositoryCrud<Data.Entity.Product>, IProductRepository
     {
         PostgreSqlDBContext _context;
 
@@ -21,7 +21,7 @@ namespace OPLOGInventory.Repository.Product
 
 
 
-        public Domain.Entity.Product readBySKU(string sku)
+        public Data.Entity.Product readBySKU(string sku)
         {
             return _context.Product.FirstOrDefault(x => x.SKU == sku);
         }

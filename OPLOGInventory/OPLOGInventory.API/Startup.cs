@@ -16,7 +16,7 @@ using OPLOGInventory.Application.InventoryItems;
 using OPLOGInventory.Application.Products;
 using OPLOGInventory.Application.QueryApplications;
 using OPLOGInventory.Application.SalesOrders;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository;
@@ -47,9 +47,9 @@ namespace OPLOGInventory.API
         {
             services.AddControllers();
 
-
+            #region INJECTION
             services.AddDbContext<PostgreSqlDBContext>(options => options.UseLazyLoadingProxies()
-                .UseNpgsql("Server=localhost;Port=5432;Database=oplog;User ID=postgres;Password=nova;"));
+        .UseNpgsql("Server=localhost;Port=5432;Database=oplog;User ID=postgres;Password=nova;"));
 
             services.AddHttpContextAccessor();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -70,44 +70,39 @@ namespace OPLOGInventory.API
             services.AddTransient<ILocationRepository, LocationRepository>();
             services.AddTransient<IApiUserRepository, ApiUserRepository>();
 
-            services.AddScoped(typeof(IRepositoryCrud<>), typeof(RepositoryCrud<>));
-
-
-            // OPEN API
+            services.AddScoped(typeof(IRepositoryCrud<>), typeof(RepositoryCrud<>)); 
+            #endregion
+            #region SWAGGER
             services.AddSwaggerGen(c =>
-            {
+    {
 
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "OPLOG Inventory API",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Serkan Ince",
-                        Email = "serkanince444@gmail.com",
-                        Url = new Uri("https://dev.serkanince.com"),
-                    },
-                });
-                c.EnableAnnotations(); //custom attribute enable
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "OPLOG Inventory API",
+            Contact = new OpenApiContact
+            {
+                Name = "Serkan Ince",
+                Email = "serkanince444@gmail.com",
+                Url = new Uri("https://dev.serkanince.com"),
+            },
+        });
+        c.EnableAnnotations(); //custom attribute enable
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-            });
-
-            //
-
-            //AUTOMAPPER 
+        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+        c.IncludeXmlComments(xmlPath);
+    }); 
+            #endregion
+            #region AUTOMAPPER
             var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new AutoMapperProfile());
-            });
+    {
+        mc.AddProfile(new AutoMapperProfile());
+    });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-            //AUTOMAPPER
-
-            //JWT
-
+            #endregion
+            #region JWT
             var key = Encoding.ASCII.GetBytes(Configuration["Application:Secret"]);
             services.AddAuthentication(x =>
             {
@@ -132,10 +127,7 @@ namespace OPLOGInventory.API
                     ValidateAudience = true
                 };
             });
-
-            //JWT
-
-
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

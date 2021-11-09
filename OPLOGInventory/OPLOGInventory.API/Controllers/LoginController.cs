@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OPLOGInventory.Application.ApiUsers;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Model;
 
 namespace OPLOGInventory.API.Controllers
 {

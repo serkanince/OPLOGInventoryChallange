@@ -1,4 +1,4 @@
-﻿using OPLOGInventory.Domain.Entity;
+﻿using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 using System;
 using System.Collections.Generic;

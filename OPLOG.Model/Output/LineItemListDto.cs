@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.DTO.Output
+namespace OPLOGInventory.Model.Output
 {
     public class LineItemListDto
     {

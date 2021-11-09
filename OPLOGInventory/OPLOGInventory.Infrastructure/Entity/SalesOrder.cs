@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.DTO
+namespace OPLOGInventory.Data.Entity
 {
-    public class SalesOrderDto
+    public class SalesOrder 
     {
+        [Key]
+        public Guid ID { get; set; }
 
         [Required]
+        
         public string ReferanceNo { get; set; }
 
         [Required]
         public bool IsShipped { get; set; }
-
+        
         [Required]
-        public virtual List<LineItemDto> LineItems { get; set; }
+        public virtual ICollection<LineItem> LineItems { get; set; }
 
         public DateTime? CancelledDate { get; set; }
 

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.DTO.Output
+namespace OPLOGInventory.Model.Output
 {
-    public class BarcodeListDto
+    public class ContainerListDto
     {
+        public LocationListDto Location { get; set; }
+
         public string Label { get; set; }
     }
 }

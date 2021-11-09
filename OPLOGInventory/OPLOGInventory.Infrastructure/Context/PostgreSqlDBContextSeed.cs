@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -43,13 +43,13 @@ namespace OPLOGInventory.Infrastructure.DB
             builder.Entity<Location>().HasData(new Location() { ID = locationGuid_2, x = 11, y = 22, z = 11 });
             builder.Entity<Container>().HasData(new Container() { ID = containerGuid, LocationId = locationGuid, Label = "Container-X" });
             builder.Entity<Container>().HasData(new Container() { ID = containerGuid_2, LocationId = locationGuid_2, Label = "Container-Y" });
-            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid, ContainerId = containerGuid, Type = Domain.Enum.InventoryItemType.Reserved, ProductId = productID, LineItemId = lineItemId });
-            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_2, ContainerId = containerGuid, Type = Domain.Enum.InventoryItemType.Stock, ProductId = productID });
-            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_3, ContainerId = containerGuid_2, Type = Domain.Enum.InventoryItemType.Stock, ProductId = productID });
-            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_4, ContainerId = containerGuid_2, Type = Domain.Enum.InventoryItemType.Stock, ProductId = productID_2 });
-            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_5, ContainerId = containerGuid_2, Type = Domain.Enum.InventoryItemType.Stock, ProductId = productID_2 });
-            builder.Entity<ApiUser>().HasData(new ApiUser() { ID = apiuserId, Username = "seller", Password = "seller", Role = Domain.Enum.ApiUserRole.Seller });
-            builder.Entity<ApiUser>().HasData(new ApiUser() { ID = apiuserId_2, Username = "operator", Password = "operator", Role = Domain.Enum.ApiUserRole.Operator });
+            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid, ContainerId = containerGuid, Type = Model.InventoryItemType.Reserved, ProductId = productID, LineItemId = lineItemId });
+            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_2, ContainerId = containerGuid, Type = Model.InventoryItemType.Stock, ProductId = productID });
+            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_3, ContainerId = containerGuid_2, Type = Model.InventoryItemType.Stock, ProductId = productID });
+            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_4, ContainerId = containerGuid_2, Type = Model.InventoryItemType.Stock, ProductId = productID_2 });
+            builder.Entity<InventoryItem>().HasData(new InventoryItem() { ID = inventoryGuid_5, ContainerId = containerGuid_2, Type = Model.InventoryItemType.Stock, ProductId = productID_2 });
+            builder.Entity<ApiUser>().HasData(new ApiUser() { ID = apiuserId, Username = "seller", Password = "seller", Role = Model.ApiUserRole.Seller });
+            builder.Entity<ApiUser>().HasData(new ApiUser() { ID = apiuserId_2, Username = "operator", Password = "operator", Role = Model.ApiUserRole.Operator });
         }
     }
 }

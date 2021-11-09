@@ -4,8 +4,8 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.Product
 {
-    public interface IProductRepository : IRepositoryCrud<Domain.Entity.Product>
+    public interface IProductRepository : IRepositoryCrud<Data.Entity.Product>
     {
-        Domain.Entity.Product readBySKU(string sku);
+        Data.Entity.Product readBySKU(string sku);
     }
 }

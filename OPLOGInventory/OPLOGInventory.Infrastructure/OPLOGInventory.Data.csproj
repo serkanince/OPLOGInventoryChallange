@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OPLOGInventory.Domain\OPLOGInventory.Domain.csproj" />
+    <ProjectReference Include="..\..\OPLOG.Model\OPLOGInventory.Model.csproj" />
   </ItemGroup>
 
 </Project>

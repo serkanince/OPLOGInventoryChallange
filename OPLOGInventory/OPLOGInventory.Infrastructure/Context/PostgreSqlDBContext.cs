@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,10 +1,10 @@
-﻿using OPLOGInventory.Domain.Enum;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.DTO
+namespace OPLOGInventory.Model
 {
     public class InventoryItemDto
     {

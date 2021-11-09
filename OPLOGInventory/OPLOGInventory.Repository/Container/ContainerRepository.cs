@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using OPLOGInventory.Domain.Entity;
+using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 
 namespace OPLOGInventory.Repository.Container
 {
-    public class ContainerRepository : RepositoryCrud<Domain.Entity.Container>, IContainerRepository
+    public class ContainerRepository : RepositoryCrud<Data.Entity.Container>, IContainerRepository
     {
         PostgreSqlDBContext _context;
 
@@ -17,7 +17,7 @@ namespace OPLOGInventory.Repository.Container
             _context = context;
         }
 
-        public Domain.Entity.Container ReadByLabel(string label)
+        public Data.Entity.Container ReadByLabel(string label)
         {
             return _context.Container.Where(x => x.Label == label).FirstOrDefault();
         }

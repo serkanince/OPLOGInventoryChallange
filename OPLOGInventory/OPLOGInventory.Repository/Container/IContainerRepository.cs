@@ -4,8 +4,8 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.Container
 {
-    public interface IContainerRepository : IRepositoryCrud<Domain.Entity.Container>
+    public interface IContainerRepository : IRepositoryCrud<Data.Entity.Container>
     {
-        Domain.Entity.Container ReadByLabel(string label);
+        Data.Entity.Container ReadByLabel(string label);
     }
 }
