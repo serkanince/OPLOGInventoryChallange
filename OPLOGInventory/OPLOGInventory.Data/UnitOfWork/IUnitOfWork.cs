@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.UOW
+namespace OPLOGInventory.Data.UOW
 {
     public interface IUnitOfWork
     {

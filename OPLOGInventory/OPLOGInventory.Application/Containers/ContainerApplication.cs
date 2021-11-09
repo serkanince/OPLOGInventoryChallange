@@ -5,7 +5,7 @@ using AutoMapper;
 using OPLOGInventory.Application.ResultModel;
 using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Model;
-using OPLOGInventory.Infrastructure.UOW;
+using OPLOGInventory.Data.UOW;
 using OPLOGInventory.Repository.Container;
 using OPLOGInventory.Repository.Location;
 using OPLOGInventory.Repository.Rules;

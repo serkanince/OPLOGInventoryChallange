@@ -2,18 +2,16 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using OPLOGInventory.Infrastructure.DB;
+using OPLOGInventory.Data.DB;
 
 namespace OPLOGInventory.Data.Migrations
 {
     [DbContext(typeof(PostgreSqlDBContext))]
-    [Migration("20211109120153_Initial")]
-    partial class Initial
+    partial class PostgreSqlDBContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

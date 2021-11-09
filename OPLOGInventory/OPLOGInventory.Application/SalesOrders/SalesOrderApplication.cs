@@ -7,7 +7,7 @@ using OPLOGInventory.Application.ResultModel;
 using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Model;
 using OPLOGInventory.Model.Output;
-using OPLOGInventory.Infrastructure.UOW;
+using OPLOGInventory.Data.UOW;
 using OPLOGInventory.Repository.InventoryItem;
 using OPLOGInventory.Repository.Product;
 using OPLOGInventory.Repository.Rules;

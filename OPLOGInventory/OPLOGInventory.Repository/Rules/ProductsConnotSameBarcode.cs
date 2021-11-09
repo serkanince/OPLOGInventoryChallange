@@ -1,5 +1,5 @@
 ﻿using OPLOGInventory.Data.Entity;
-using OPLOGInventory.Infrastructure.DB;
+using OPLOGInventory.Data.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;

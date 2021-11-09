@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.API", "OPLOG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Application", "OPLOGInventory\OPLOGInventory.Application\OPLOGInventory.Application.csproj", "{B2C0C5CC-9562-4B01-B190-D0AA98CAF55E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Data", "OPLOGInventory\OPLOGInventory.Infrastructure\OPLOGInventory.Data.csproj", "{786026A9-20BE-4E9D-9504-E2B244366100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Data", "OPLOGInventory\OPLOGInventory.Data\OPLOGInventory.Data.csproj", "{786026A9-20BE-4E9D-9504-E2B244366100}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Repository", "OPLOGInventory\OPLOGInventory.Repository\OPLOGInventory.Repository.csproj", "{DD4B6E7B-6718-4838-87C9-FBD42C8E40FC}"
 EndProject

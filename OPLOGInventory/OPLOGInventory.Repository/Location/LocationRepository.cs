@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using OPLOGInventory.Data.Entity;
-using OPLOGInventory.Infrastructure.DB;
+using OPLOGInventory.Data.DB;
 
 namespace OPLOGInventory.Repository.Location
 {

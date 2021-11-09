@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OPLOGInventory.Infrastructure.DB
+namespace OPLOGInventory.Data.DB
 {
     public static class PostgreSqlDBContextSeed
     {
