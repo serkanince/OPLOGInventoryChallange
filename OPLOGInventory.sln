@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Data", "OPLO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Repository", "OPLOGInventory\OPLOGInventory.Repository\OPLOGInventory.Repository.csproj", "{DD4B6E7B-6718-4838-87C9-FBD42C8E40FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Test", "OPLOGInventory\OPLOGInventory.Test\OPLOGInventory.Test.csproj", "{A5635AB5-B480-4958-8538-92E1308F5FF2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Domain", "OPLOGInventory\OPLOGInventory.Domain\OPLOGInventory.Domain.csproj", "{48D6FD71-818C-4FCC-ABBB-34EA2EF82A21}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{DD4B6E7B-6718-4838-87C9-FBD42C8E40FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD4B6E7B-6718-4838-87C9-FBD42C8E40FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD4B6E7B-6718-4838-87C9-FBD42C8E40FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5635AB5-B480-4958-8538-92E1308F5FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5635AB5-B480-4958-8538-92E1308F5FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5635AB5-B480-4958-8538-92E1308F5FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5635AB5-B480-4958-8538-92E1308F5FF2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48D6FD71-818C-4FCC-ABBB-34EA2EF82A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48D6FD71-818C-4FCC-ABBB-34EA2EF82A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D6FD71-818C-4FCC-ABBB-34EA2EF82A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
