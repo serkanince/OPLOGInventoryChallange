@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OPLOGInventory.Domain.Enum
+namespace OPLOGInventory.Model
 {
     public static class ApiUserRole
     {

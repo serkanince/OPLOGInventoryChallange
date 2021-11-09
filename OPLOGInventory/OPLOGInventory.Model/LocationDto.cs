@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OPLOGInventory.Domain.Entity
+namespace OPLOGInventory.Model
 {
-    public class Location 
+    public class LocationDto
     {
-        [Key]
-        public Guid ID { get; set; }
-
         [Required]
         public decimal x { get; set; }
 
@@ -18,7 +15,5 @@ namespace OPLOGInventory.Domain.Entity
 
         [Required]
         public decimal z { get; set; }
-
-        public virtual ICollection<Container> LocatedContainers { get; set; }
     }
 }
