@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Data", "OPLO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGInventory.Repository", "OPLOGInventory\OPLOGInventory.Repository\OPLOGInventory.Repository.csproj", "{DD4B6E7B-6718-4838-87C9-FBD42C8E40FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGInventory.Model", "OPLOG.Model\OPLOGInventory.Model.csproj", "{94FAFF24-28CD-4624-9352-8B83D875F520}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGInventory.Model", "OPLOGInventory\OPLOGInventory.Model\OPLOGInventory.Model.csproj", "{94FAFF24-28CD-4624-9352-8B83D875F520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
