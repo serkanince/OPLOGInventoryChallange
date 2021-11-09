@@ -8,26 +8,25 @@ Sample .NET Core REST API application implemented with basic Generic Repository 
 
 ### Technologies implemented
 
-* Asp.Net Core 3.0
+* Asp.Net Core 3.1
 * ASP.NET WebApi Core with JWT Bearer Authentication
 * Native DI
 * FluentValidation
 * AutoMapper 
 * OPEN API with Swagger UI
+* Db : PostgreSQL
 
 ### Architecture
 
-* DDD (Monolith)
 * Unit of Work
 * Generic Repository Pattern
 * Rules Pattern
 * Clean Code
-* Dependency Inversion
-* Single-responsibility principle
+* SOLID Prenciple
 
 ### TODO
 
 * Unit Test
 * In-Memory Caching
-* Event-driven architecture?
+* CQRS?
 
