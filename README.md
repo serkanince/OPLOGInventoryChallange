@@ -1,4 +1,4 @@
-# OPLOGInventoryChallange
+# OPLOG Backend Case Study Challange
 
 
 ## Description
