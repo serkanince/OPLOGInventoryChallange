@@ -10,7 +10,7 @@ using OPLOGInventory.Repository.Rules;
 
 namespace OPLOGInventory.Repository.Product
 {
-    public class ProductRepository<TEntity> : RepositoryCrud<TEntity>, IProductRepository<TEntity> where TEntity : class
+    public class ProductRepository : RepositoryCrud<Domain.Entity.Product>, IProductRepository
     {
         PostgreSqlDBContext _context;
 

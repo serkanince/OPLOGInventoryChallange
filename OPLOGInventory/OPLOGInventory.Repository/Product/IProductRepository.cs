@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.Product
 {
-    public interface IProductRepository<TEntity> : IRepositoryCrud<TEntity> where TEntity : class
+    public interface IProductRepository : IRepositoryCrud<Domain.Entity.Product>
     {
         Domain.Entity.Product readBySKU(string sku);
     }

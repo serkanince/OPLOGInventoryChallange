@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace OPLOGInventory.Repository.SalesOrder
 {
-    public class SalesOrderRepository<TEntity> : RepositoryCrud<TEntity>, ISalesOrderRepository<TEntity> where TEntity : class
+    public class SalesOrderRepository : RepositoryCrud<Domain.Entity.SalesOrder>, ISalesOrderRepository
     {
         PostgreSqlDBContext _context;
 

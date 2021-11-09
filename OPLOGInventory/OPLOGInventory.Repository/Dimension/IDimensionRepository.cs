@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.Dimension
 {
-    interface IDimensionRepository<TEntity> : IRepositoryCrud<TEntity> where TEntity : class
+    interface IDimensionRepository : IRepositoryCrud<Domain.Entity.Dimension>
     {
     }
 }

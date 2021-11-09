@@ -15,8 +15,8 @@ namespace OPLOGInventory.Application.InventoryItems
 {
     public class InventoryItemApplication : IInventoryItemApplication
     {
-        public InventoryItemApplication(IUnitOfWork uow, IInventoryItemRepository<InventoryItem> inventoryItemRepository, IMapper mapper, IProductRepository<Product> productRepository,
-            IContainerRepository<Container> containerRepository)
+        public InventoryItemApplication(IUnitOfWork uow, IInventoryItemRepository inventoryItemRepository, IMapper mapper, IProductRepository productRepository,
+            IContainerRepository containerRepository)
         {
             _unitofwork = uow;
             _inventoryItemRepository = inventoryItemRepository;
@@ -27,11 +27,11 @@ namespace OPLOGInventory.Application.InventoryItems
 
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
-        private IInventoryItemRepository<InventoryItem> _inventoryItemRepository { get; }
+        private IInventoryItemRepository _inventoryItemRepository { get; }
 
-        private IProductRepository<Product> _productRepository { get; }
+        private IProductRepository _productRepository { get; }
 
-        private IContainerRepository<Container> _containerRepository { get; }
+        private IContainerRepository _containerRepository { get; }
 
 
         public IResult CreateProduct(InventoryItemDto input)

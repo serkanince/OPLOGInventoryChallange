@@ -9,51 +9,51 @@ using System.Threading.Tasks;
 
 namespace OPLOGInventory.Repository
 {
-    public class RepositoryCrud<TEntity> : RepositoryBase, IRepositoryCrud<TEntity> where TEntity : class
+    public class RepositoryCrud<T> : RepositoryBase,IRepositoryCrud<T> where T : class
     {
         private readonly PostgreSqlDBContext _context;
-        protected readonly DbSet<TEntity> _table;
+        protected readonly DbSet<T> _table;
 
 
         public RepositoryCrud(PostgreSqlDBContext context)
         {
             _context = context;
-            _table = context.Set<TEntity>();
+            _table = context.Set<T>();
         }
 
-        public IQueryable<TEntity> GetAll()
+        public IQueryable<T> GetAll()
         {
             return _table.AsQueryable();
         }
 
-        public IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate)
         {
             return _table.Where(predicate).AsQueryable();
         }
 
-        public TEntity Insert(TEntity entity)
+        public T Insert(T entity)
         {
             return _table.Add(entity).Entity;
         }
 
-        public async Task<TEntity> InsertAsync(TEntity entity)
+        public async Task<T> InsertAsync(T entity)
         {
             return (await _table.AddAsync(entity)).Entity;
         }
 
-        public TEntity Update(TEntity entity)
+        public T Update(T entity)
         {
             return (_table.Update(entity)).Entity;
         }
 
-        public IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
 
-            IQueryable<TEntity> query = _table.Where(predicate);
+            IQueryable<T> query = _table.Where(predicate);
             return query;
         }
 
-        public TEntity Remove(TEntity entity)
+        public T Remove(T entity)
         {
             return _table.Remove(entity).Entity;
         }

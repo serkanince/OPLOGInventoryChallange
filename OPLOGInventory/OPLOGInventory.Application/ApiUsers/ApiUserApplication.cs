@@ -2,6 +2,7 @@
 using OPLOGInventory.Application.ResultModel;
 using OPLOGInventory.Domain.Entity;
 using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.ApiUser;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ namespace OPLOGInventory.Application.ApiUsers
 {
     public class ApiUserApplication : IApiUserApplication
     {
-        public ApiUserApplication(IApiUserRepository apiuserrepository, IMapper mapper)
+        public ApiUserApplication(IUnitOfWork uow, IMapper mapper, IApiUserRepository apiuserrepository)
+
         {
             _apiuserrepository = apiuserrepository;
             _mapper = mapper;

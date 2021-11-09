@@ -13,7 +13,7 @@ namespace OPLOGInventory.Application.Products
 {
     public class ProductApplication : IProductApplication
     {
-        public ProductApplication(IUnitOfWork uow, IProductRepository<Product> productRepository, IMapper mapper)
+        public ProductApplication(IUnitOfWork uow, IProductRepository productRepository, IMapper mapper)
         {
             _unitofwork = uow;
             _productRepository = productRepository;
@@ -23,7 +23,7 @@ namespace OPLOGInventory.Application.Products
 
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
-        private IProductRepository<Product> _productRepository { get; }
+        private IProductRepository _productRepository { get; }
 
         public IResult CreateProduct(ProductDto input)
         {

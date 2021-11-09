@@ -8,11 +8,11 @@ using OPLOGInventory.Infrastructure.DB;
 
 namespace OPLOGInventory.Repository.ApiUser
 {
-    public class ApiUserRepository : IApiUserRepository
+    public class ApiUserRepository : RepositoryCrud<Domain.Entity.ApiUser>, IApiUserRepository
     {
         PostgreSqlDBContext _context;
 
-        public ApiUserRepository(PostgreSqlDBContext context)
+        public ApiUserRepository(PostgreSqlDBContext context) : base(context: context)
         {
             _context = context;
         }

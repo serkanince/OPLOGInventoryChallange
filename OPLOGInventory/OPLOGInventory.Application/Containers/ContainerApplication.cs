@@ -14,7 +14,7 @@ namespace OPLOGInventory.Application.Containers
 {
     public class ContainerApplication : IContainerApplication
     {
-        public ContainerApplication(IUnitOfWork uow, IMapper mapper, IContainerRepository<Container> containerRepository, ILocationRepository<Location> locationRepository)
+        public ContainerApplication(IUnitOfWork uow, IMapper mapper, IContainerRepository containerRepository, ILocationRepository locationRepository)
         {
             _unitofwork = uow;
             _mapper = mapper;
@@ -25,9 +25,9 @@ namespace OPLOGInventory.Application.Containers
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
 
-        private IContainerRepository<Container> _containerRepository { get; }
+        private IContainerRepository _containerRepository { get; }
 
-        private ILocationRepository<Location> _locationRepository { get; }
+        private ILocationRepository _locationRepository { get; }
 
         public IResult MoveContainer(ContainerDto input)
         {

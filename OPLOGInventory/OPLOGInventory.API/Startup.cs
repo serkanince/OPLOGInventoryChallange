@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,7 @@ using OPLOGInventory.Application.SalesOrders;
 using OPLOGInventory.Domain.Entity;
 using OPLOGInventory.Infrastructure.DB;
 using OPLOGInventory.Infrastructure.UOW;
+using OPLOGInventory.Repository;
 using OPLOGInventory.Repository.ApiUser;
 using OPLOGInventory.Repository.Container;
 using OPLOGInventory.Repository.InventoryItem;
@@ -47,30 +49,28 @@ namespace OPLOGInventory.API
 
 
             services.AddDbContext<PostgreSqlDBContext>(options => options.UseLazyLoadingProxies()
+                .UseNpgsql("Server=localhost;Port=5432;Database=oplog;User ID=postgres;Password=nova;"));
 
-            //TEST
-            .UseSqlServer("Server=.\\SQLEXPRESS; Database=OPLOGInventory; Trusted_Connection=True;"));
-
-
-            //INJECT//
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddScoped<PostgreSqlDBContext>();
 
-            services.AddTransient<IProductApplication, ProductApplication>();
-            services.AddTransient<ISalesOrderApplication, SalesOrderApplication>();
-            services.AddTransient<IInventoryItemApplication, InventoryItemApplication>();
-            services.AddTransient<IApiUserApplication, ApiUserApplication>();
-            services.AddTransient<IContainerApplication, ContainerApplication>();
-            services.AddTransient<IQueryApplication, QueryApplication>();
+            services.AddScoped<IProductApplication, ProductApplication>();
+            services.AddScoped<ISalesOrderApplication, SalesOrderApplication>();
+            services.AddScoped<IInventoryItemApplication, InventoryItemApplication>();
+            services.AddScoped<IApiUserApplication, ApiUserApplication>();
+            services.AddScoped<IContainerApplication, ContainerApplication>();
+            services.AddScoped<IQueryApplication, QueryApplication>();
 
-            //services.AddTransient<IProductRepository, ProductRepository>();
-            //services.AddTransient<ISalesOrderRepository, SalesOrderRepository>();
-            //services.AddTransient<IContainerRepository<Container>, ContainerRepository<Container>>();
-            //services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
-            //services.AddTransient<ILocationRepository, LocationRepository>();
-            //services.AddTransient<IApiUserRepository, ApiUserRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ISalesOrderRepository, SalesOrderRepository>();
+            services.AddTransient<IContainerRepository, ContainerRepository>();
+            services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
+            services.AddTransient<ILocationRepository, LocationRepository>();
+            services.AddTransient<IApiUserRepository, ApiUserRepository>();
 
-            //INJECT//
+            services.AddScoped(typeof(IRepositoryCrud<>), typeof(RepositoryCrud<>));
 
 
             // OPEN API
@@ -105,9 +105,6 @@ namespace OPLOGInventory.API
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             //AUTOMAPPER
-
-
-
 
             //JWT
 

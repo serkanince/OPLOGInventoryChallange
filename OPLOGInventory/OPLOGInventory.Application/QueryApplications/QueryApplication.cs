@@ -13,7 +13,7 @@ namespace OPLOGInventory.Application.QueryApplications
 {
     public class QueryApplication : IQueryApplication
     {
-        public QueryApplication(IUnitOfWork uow, IContainerRepository<Container> containerRepository, IInventoryItemRepository<InventoryItem> inventoryItemRepository)
+        public QueryApplication(IUnitOfWork uow, IContainerRepository containerRepository, IInventoryItemRepository inventoryItemRepository)
         {
             _unitofwork = uow;
             _containerRepository = containerRepository;
@@ -22,9 +22,9 @@ namespace OPLOGInventory.Application.QueryApplications
 
         private IUnitOfWork _unitofwork { get; }
 
-        private IContainerRepository<Container> _containerRepository { get; }
+        private IContainerRepository _containerRepository { get; }
 
-        private IInventoryItemRepository<InventoryItem> _inventoryItemRepository { get; }
+        private IInventoryItemRepository _inventoryItemRepository { get; }
 
         public IDataResult<List<CurrentStockPerProductDto>> CurrentStockInStock()
         {

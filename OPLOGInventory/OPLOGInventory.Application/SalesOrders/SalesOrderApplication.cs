@@ -17,7 +17,7 @@ namespace OPLOGInventory.Application.SalesOrders
 {
     public class SalesOrderApplication : ISalesOrderApplication
     {
-        public SalesOrderApplication(IUnitOfWork uow, ISalesOrderRepository<SalesOrder> salesorderRepository, IProductRepository<Product> productRepository, IInventoryItemRepository<InventoryItem> inventoryRepository, IMapper mapper)
+        public SalesOrderApplication(IUnitOfWork uow, ISalesOrderRepository salesorderRepository, IProductRepository productRepository, IInventoryItemRepository inventoryRepository, IMapper mapper)
         {
             _unitofwork = uow;
             _salesorderRepository = salesorderRepository;
@@ -28,11 +28,11 @@ namespace OPLOGInventory.Application.SalesOrders
 
         private IMapper _mapper { get; }
         private IUnitOfWork _unitofwork { get; }
-        private ISalesOrderRepository<SalesOrder> _salesorderRepository { get; }
+        private ISalesOrderRepository _salesorderRepository { get; }
 
-        private IInventoryItemRepository<InventoryItem> _inventoryRepository { get; }
+        private IInventoryItemRepository _inventoryRepository { get; }
 
-        private IProductRepository<Product> _productRepository { get; }
+        private IProductRepository _productRepository { get; }
 
         public IResult CancelSalesOrder(string referenceNo)
         {

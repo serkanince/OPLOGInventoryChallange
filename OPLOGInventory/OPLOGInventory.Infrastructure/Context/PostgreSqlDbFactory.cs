@@ -18,7 +18,7 @@ namespace OPLOGInventory.Data.Context
         public PostgreSqlDBContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<PostgreSqlDBContext>();
-            //builder.UseNpSql("Server=localhost;Port=5432;Database=piranha;User ID=piranha;Password=piranha;");
+            builder.UseNpgsql("Server=localhost;Port=5432;Database=oplog;User ID=postgres;Password=nova;");
             return new PostgreSqlDBContext(builder.Options);
         }
     }

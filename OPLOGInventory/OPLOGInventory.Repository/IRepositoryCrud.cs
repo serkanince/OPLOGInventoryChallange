@@ -7,39 +7,39 @@ using System.Threading.Tasks;
 
 namespace OPLOGInventory.Repository
 {
-    public interface IRepositoryCrud<TEntity> where TEntity : class
+    public interface IRepositoryCrud<T> where T : class
     {
         /// <summary>
         /// Inserts a new entity.
         /// </summary>
         /// <param name="entity">Inserted entity</param>
-        TEntity Insert(TEntity entity);
+        T Insert(T entity);
 
         /// <summary>
         /// Inserts a new entity.
         /// </summary>
         /// <param name="entity">Inserted entity</param>
-        Task<TEntity> InsertAsync(TEntity entity);
+        Task<T> InsertAsync(T entity);
 
         /// <summary>
         /// delete a entity.
         /// </summary>
         /// <param name="entity">Inserted entity</param>
-        TEntity Remove(TEntity entity);
+        T Remove(T entity);
 
         /// <summary>
         /// Updates an existing entity.
         /// </summary>
         /// <param name="entity">Entity</param>
-        TEntity Update(TEntity entity);
+        T Update(T entity);
 
         /// <summary>
         /// Filter an existing entity.
         /// </summary>
         /// <param name="entity">Entity</param>
-        IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
 
-        IQueryable<TEntity> GetAll();
-        IQueryable<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<T> GetAll();
+        IQueryable<T> GetAll(Expression<Func<T, bool>> predicate);
     }
 }

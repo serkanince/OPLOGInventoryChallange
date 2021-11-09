@@ -8,7 +8,7 @@ using OPLOGInventory.Infrastructure.DB;
 
 namespace OPLOGInventory.Repository.InventoryItem
 {
-    public class InventoryItemRepository<TEntity> : RepositoryCrud<TEntity>, IInventoryItemRepository<TEntity> where TEntity : class
+    public class InventoryItemRepository : RepositoryCrud<Domain.Entity.InventoryItem>, IInventoryItemRepository
     {
         PostgreSqlDBContext _context;
 

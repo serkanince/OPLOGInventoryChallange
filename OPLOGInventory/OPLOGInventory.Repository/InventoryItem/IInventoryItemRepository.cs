@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.InventoryItem
 {
-    public interface IInventoryItemRepository<TEntity> : IRepositoryCrud<TEntity> where TEntity : class
+    public interface IInventoryItemRepository : IRepositoryCrud<Domain.Entity.InventoryItem> 
     {
     }
 }
