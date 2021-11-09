@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OPLOGInventory.Application.QueryApplications;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Infrastructure.DTO.Output;
+using OPLOGInventory.Model.Output;
 
 namespace OPLOGInventory.API.Controllers
 {

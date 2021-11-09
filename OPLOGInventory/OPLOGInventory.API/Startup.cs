@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,8 +16,10 @@ using OPLOGInventory.Application.InventoryItems;
 using OPLOGInventory.Application.Products;
 using OPLOGInventory.Application.QueryApplications;
 using OPLOGInventory.Application.SalesOrders;
+using OPLOGInventory.Data.Entity;
 using OPLOGInventory.Infrastructure.DB;
 using OPLOGInventory.Infrastructure.UOW;
+using OPLOGInventory.Repository;
 using OPLOGInventory.Repository.ApiUser;
 using OPLOGInventory.Repository.Container;
 using OPLOGInventory.Repository.InventoryItem;
@@ -44,23 +47,21 @@ namespace OPLOGInventory.API
         {
             services.AddControllers();
 
+            #region INJECTION
+            services.AddDbContext<PostgreSqlDBContext>(options => options.UseLazyLoadingProxies()
+        .UseNpgsql("Server=localhost;Port=5432;Database=oplog;User ID=postgres;Password=nova;"));
 
-            services.AddDbContext<MSSQLDBContext>(options => options.UseLazyLoadingProxies()
-
-            //TEST
-            .UseSqlServer("Server=.\\SQLEXPRESS; Database=OPLOGInventory; Trusted_Connection=True;"));
-
-
-            //INJECT//
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<MSSQLDBContext>();
+            services.AddScoped<PostgreSqlDBContext>();
 
-            services.AddTransient<IProductApplication, ProductApplication>();
-            services.AddTransient<ISalesOrderApplication, SalesOrderApplication>();
-            services.AddTransient<IInventoryItemApplication, InventoryItemApplication>();
-            services.AddTransient<IApiUserApplication, ApiUserApplication>();
-            services.AddTransient<IContainerApplication, ContainerApplication>();
-            services.AddTransient<IQueryApplication, QueryApplication>();
+            services.AddScoped<IProductApplication, ProductApplication>();
+            services.AddScoped<ISalesOrderApplication, SalesOrderApplication>();
+            services.AddScoped<IInventoryItemApplication, InventoryItemApplication>();
+            services.AddScoped<IApiUserApplication, ApiUserApplication>();
+            services.AddScoped<IContainerApplication, ContainerApplication>();
+            services.AddScoped<IQueryApplication, QueryApplication>();
 
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISalesOrderRepository, SalesOrderRepository>();
@@ -69,47 +70,39 @@ namespace OPLOGInventory.API
             services.AddTransient<ILocationRepository, LocationRepository>();
             services.AddTransient<IApiUserRepository, ApiUserRepository>();
 
-            //INJECT//
-
-
-            // OPEN API
+            services.AddScoped(typeof(IRepositoryCrud<>), typeof(RepositoryCrud<>)); 
+            #endregion
+            #region SWAGGER
             services.AddSwaggerGen(c =>
-            {
+    {
 
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "OPLOG Inventory API",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Serkan Ince",
-                        Email = "serkanince444@gmail.com",
-                        Url = new Uri("https://dev.serkanince.com"),
-                    },
-                });
-                c.EnableAnnotations(); //custom attribute enable
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "OPLOG Inventory API",
+            Contact = new OpenApiContact
+            {
+                Name = "Serkan Ince",
+                Email = "serkanince444@gmail.com",
+                Url = new Uri("https://dev.serkanince.com"),
+            },
+        });
+        c.EnableAnnotations(); //custom attribute enable
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-            });
-
-            //
-
-            //AUTOMAPPER 
+        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+        c.IncludeXmlComments(xmlPath);
+    }); 
+            #endregion
+            #region AUTOMAPPER
             var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new AutoMapperProfile());
-            });
+    {
+        mc.AddProfile(new AutoMapperProfile());
+    });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-            //AUTOMAPPER
-
-
-
-
-            //JWT
-
+            #endregion
+            #region JWT
             var key = Encoding.ASCII.GetBytes(Configuration["Application:Secret"]);
             services.AddAuthentication(x =>
             {
@@ -134,10 +127,7 @@ namespace OPLOGInventory.API
                     ValidateAudience = true
                 };
             });
-
-            //JWT
-
-
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

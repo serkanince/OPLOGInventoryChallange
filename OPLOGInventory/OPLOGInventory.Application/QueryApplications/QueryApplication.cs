@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Infrastructure.DTO.Output;
+using OPLOGInventory.Data.Entity;
+using OPLOGInventory.Model.Output;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.Container;
 using OPLOGInventory.Repository.InventoryItem;
@@ -30,7 +31,7 @@ namespace OPLOGInventory.Application.QueryApplications
             var _inventoryItemList = _inventoryItemRepository.GetAll();
 
             var result = _inventoryItemList
-                .Where(x => x.Type == Domain.Enum.InventoryItemType.Stock)
+                .Where(x => x.Type == Model.InventoryItemType.Stock)
                 .GroupBy(x => new { x.Product.Name, x.Product.SKU })
                 .Select(x => new CurrentStockPerProductDto()
                 {

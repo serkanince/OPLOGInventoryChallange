@@ -4,8 +4,8 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.ApiUser
 {
-    public interface IApiUserRepository
+    public interface IApiUserRepository : IRepositoryCrud<Data.Entity.ApiUser>
     {
-        Domain.Entity.ApiUser getApiUserByUsernameandPass(string username,string password);
+        Data.Entity.ApiUser getApiUserByUsernameandPass(string username, string password);
     }
 }

@@ -8,10 +8,10 @@ namespace OPLOGInventory.Repository.Rules
 {
     public class ProductsConnotSameSKU : IBusinessRule
     {
-        private readonly MSSQLDBContext _context;
+        private readonly PostgreSqlDBContext _context;
         private readonly string _newSKU;
 
-        public ProductsConnotSameSKU(MSSQLDBContext context, string sku)
+        public ProductsConnotSameSKU(PostgreSqlDBContext context, string sku)
         {
             _newSKU = sku;
             _context = context;

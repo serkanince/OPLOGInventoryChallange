@@ -8,9 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OPLOGInventory.Application.ResultModel;
 using OPLOGInventory.Application.SalesOrders;
-using OPLOGInventory.Domain.Enum;
-using OPLOGInventory.Infrastructure.DTO;
-using OPLOGInventory.Infrastructure.DTO.Output;
+using OPLOGInventory.Model;
+using OPLOGInventory.Model.Output;
 using Swashbuckle.Swagger.Annotations;
 
 namespace OPLOGInventory.API.Controllers

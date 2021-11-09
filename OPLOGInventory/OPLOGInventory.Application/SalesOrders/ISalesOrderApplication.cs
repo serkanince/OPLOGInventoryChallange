@@ -1,6 +1,6 @@
 ﻿using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Infrastructure.DTO;
-using OPLOGInventory.Infrastructure.DTO.Output;
+using OPLOGInventory.Model;
+using OPLOGInventory.Model.Output;
 using System;
 using System.Collections.Generic;
 using System.Text;

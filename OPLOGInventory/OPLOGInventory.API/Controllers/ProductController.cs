@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OPLOGInventory.Application.Products;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Model;
 
 namespace OPLOGInventory.API.Controllers
 {

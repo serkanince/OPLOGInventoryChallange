@@ -1,5 +1,5 @@
 ﻿using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.SalesOrder
 {
-    public interface ISalesOrderRepository : IRepository<Domain.Entity.SalesOrder, Guid>
+    public interface ISalesOrderRepository: IRepositoryCrud<Data.Entity.SalesOrder>
     {
-        Domain.Entity.SalesOrder readByReferenceNo(string referenceNo);
-        Domain.Entity.SalesOrder updateShippedStatus(Domain.Entity.SalesOrder entity);
+        Data.Entity.SalesOrder readByReferenceNo(string referenceNo);
+        Data.Entity.SalesOrder updateShippedStatus(Data.Entity.SalesOrder entity);
 
-        Domain.Entity.SalesOrder updateCancelStatus(Domain.Entity.SalesOrder entity);
+        Data.Entity.SalesOrder updateCancelStatus(Data.Entity.SalesOrder entity);
     }
 }

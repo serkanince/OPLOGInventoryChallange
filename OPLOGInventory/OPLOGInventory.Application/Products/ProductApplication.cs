@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
 using OPLOGInventory.Application.ResultModel;
-using OPLOGInventory.Domain.Entity;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Data.Entity;
+using OPLOGInventory.Model;
 using OPLOGInventory.Infrastructure.UOW;
 using OPLOGInventory.Repository.Product;
 using OPLOGInventory.Repository.Rules;
@@ -29,7 +29,7 @@ namespace OPLOGInventory.Application.Products
         {
             try
             {
-                var _entity = _productRepository.create(_mapper.Map<ProductDto, Product>(input));
+                var _entity = _productRepository.Insert(_mapper.Map<ProductDto, Product>(input));
 
                 _unitofwork.SaveChanges();
 
@@ -49,7 +49,7 @@ namespace OPLOGInventory.Application.Products
 
                 if (_entity != null)
                 {
-                    _entity = _productRepository.delete(_entity);
+                    _entity = _productRepository.Remove(_entity);
                     _unitofwork.SaveChanges();
                     return Result.Success();
                 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using OPLOGInventory.Domain.Entity;
-using OPLOGInventory.Infrastructure.DTO;
+using OPLOGInventory.Data.Entity;
+using OPLOGInventory.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;

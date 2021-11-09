@@ -4,8 +4,8 @@ using System.Text;
 
 namespace OPLOGInventory.Repository.Location
 {
-    public interface ILocationRepository : IRepository<Domain.Entity.Location, Guid>
+    public interface ILocationRepository : IRepositoryCrud<Data.Entity.Location> 
     {
-        Domain.Entity.Location readByXYZ(decimal x, decimal y, decimal z);
+        Data.Entity.Location readByXYZ(decimal x, decimal y, decimal z);
     }
 }
