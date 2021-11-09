@@ -6,9 +6,9 @@ using System.Text;
 
 namespace OPLOGInventory.Infrastructure.DB
 {
-    public sealed class MSSQLDBContext : DbContext
+    public sealed class PostgreSqlDBContext : DbContext
     {
-        public MSSQLDBContext(DbContextOptions<MSSQLDBContext> options) : base(options)
+        public PostgreSqlDBContext(DbContextOptions<PostgreSqlDBContext> options) : base(options)
         {
 
         }

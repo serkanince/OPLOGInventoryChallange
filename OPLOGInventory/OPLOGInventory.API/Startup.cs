@@ -46,7 +46,7 @@ namespace OPLOGInventory.API
             services.AddControllers();
 
 
-            services.AddDbContext<MSSQLDBContext>(options => options.UseLazyLoadingProxies()
+            services.AddDbContext<PostgreSqlDBContext>(options => options.UseLazyLoadingProxies()
 
             //TEST
             .UseSqlServer("Server=.\\SQLEXPRESS; Database=OPLOGInventory; Trusted_Connection=True;"));
@@ -54,7 +54,7 @@ namespace OPLOGInventory.API
 
             //INJECT//
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<MSSQLDBContext>();
+            services.AddScoped<PostgreSqlDBContext>();
 
             services.AddTransient<IProductApplication, ProductApplication>();
             services.AddTransient<ISalesOrderApplication, SalesOrderApplication>();

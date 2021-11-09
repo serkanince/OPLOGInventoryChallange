@@ -11,12 +11,14 @@ namespace OPLOGInventory.Repository
 {
     public class RepositoryCrud<TEntity> : RepositoryBase, IRepositoryCrud<TEntity> where TEntity : class
     {
-        MSSQLDBContext _context;
-        private DbSet<TEntity> _table => _context.Set<TEntity>();
+        private readonly PostgreSqlDBContext _context;
+        protected readonly DbSet<TEntity> _table;
 
-        public RepositoryCrud(MSSQLDBContext context)
+
+        public RepositoryCrud(PostgreSqlDBContext context)
         {
             _context = context;
+            _table = context.Set<TEntity>();
         }
 
         public IQueryable<TEntity> GetAll()

@@ -8,12 +8,12 @@ namespace OPLOGInventory.Repository.Rules
 {
     public class SalesOrdersAvailableStockForProduct : IBusinessRule
     {
-        private readonly MSSQLDBContext _context;
+        private readonly PostgreSqlDBContext _context;
         private List<Domain.Entity.LineItem> _lineItems;
 
         private string _notAvailableProduct;
 
-        public SalesOrdersAvailableStockForProduct(MSSQLDBContext context, List<Domain.Entity.LineItem> lineItems)
+        public SalesOrdersAvailableStockForProduct(PostgreSqlDBContext context, List<Domain.Entity.LineItem> lineItems)
         {
             _lineItems = lineItems;
             _context = context;

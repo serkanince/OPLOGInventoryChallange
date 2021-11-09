@@ -12,9 +12,9 @@ namespace OPLOGInventory.Repository.Product
 {
     public class ProductRepository<TEntity> : RepositoryCrud<TEntity>, IProductRepository<TEntity> where TEntity : class
     {
-        MSSQLDBContext _context;
+        PostgreSqlDBContext _context;
 
-        public ProductRepository(MSSQLDBContext context) : base(context: context)
+        public ProductRepository(PostgreSqlDBContext context) : base(context: context)
         {
             _context = context;
         }

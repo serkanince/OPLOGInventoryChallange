@@ -6,7 +6,7 @@ using System.Text;
 
 namespace OPLOGInventory.Infrastructure.DB
 {
-    public static class MSSQLDBContextSeed
+    public static class PostgreSqlDBContextSeed
     {
         public static void Seed(this ModelBuilder builder)
         {

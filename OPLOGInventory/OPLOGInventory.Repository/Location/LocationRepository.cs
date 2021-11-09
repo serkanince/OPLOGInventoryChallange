@@ -10,9 +10,9 @@ namespace OPLOGInventory.Repository.Location
 {
     public class LocationRepository<TEntity> : RepositoryCrud<TEntity>, ILocationRepository<TEntity> where TEntity : class
     {
-        MSSQLDBContext _context;
+        PostgreSqlDBContext _context;
 
-        public LocationRepository(MSSQLDBContext context) : base(context : context)
+        public LocationRepository(PostgreSqlDBContext context) : base(context : context)
         {
             _context = context;
         }

@@ -7,8 +7,8 @@ namespace OPLOGInventory.Infrastructure.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private MSSQLDBContext _context { get; }
-        public UnitOfWork(MSSQLDBContext context)
+        private PostgreSqlDBContext _context { get; }
+        public UnitOfWork(PostgreSqlDBContext context)
         {
             _context = context;
         }

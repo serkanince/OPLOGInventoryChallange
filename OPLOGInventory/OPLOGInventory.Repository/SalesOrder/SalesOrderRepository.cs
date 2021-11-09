@@ -9,9 +9,9 @@ namespace OPLOGInventory.Repository.SalesOrder
 {
     public class SalesOrderRepository<TEntity> : RepositoryCrud<TEntity>, ISalesOrderRepository<TEntity> where TEntity : class
     {
-        MSSQLDBContext _context;
+        PostgreSqlDBContext _context;
 
-        public SalesOrderRepository(MSSQLDBContext context) : base(context: context)
+        public SalesOrderRepository(PostgreSqlDBContext context) : base(context: context)
         {
             _context = context;
         }

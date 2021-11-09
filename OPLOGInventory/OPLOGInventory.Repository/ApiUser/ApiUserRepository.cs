@@ -10,9 +10,9 @@ namespace OPLOGInventory.Repository.ApiUser
 {
     public class ApiUserRepository : IApiUserRepository
     {
-        MSSQLDBContext _context;
+        PostgreSqlDBContext _context;
 
-        public ApiUserRepository(MSSQLDBContext context)
+        public ApiUserRepository(PostgreSqlDBContext context)
         {
             _context = context;
         }

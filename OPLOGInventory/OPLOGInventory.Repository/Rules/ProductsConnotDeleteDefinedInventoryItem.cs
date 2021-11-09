@@ -8,10 +8,10 @@ namespace OPLOGInventory.Repository.Rules
 {
     public class ProductsConnotDeleteDefinedInventoryItem : IBusinessRule
     {
-        private readonly MSSQLDBContext _context;
+        private readonly PostgreSqlDBContext _context;
         private readonly Guid _productId;
 
-        public ProductsConnotDeleteDefinedInventoryItem(MSSQLDBContext context, Guid productId)
+        public ProductsConnotDeleteDefinedInventoryItem(PostgreSqlDBContext context, Guid productId)
         {
             _context = context;
             _productId = productId;

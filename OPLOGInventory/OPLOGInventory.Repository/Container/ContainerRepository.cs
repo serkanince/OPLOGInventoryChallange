@@ -10,9 +10,9 @@ namespace OPLOGInventory.Repository.Container
 {
     public class ContainerRepository<TEntity> : RepositoryCrud<TEntity>, IContainerRepository<TEntity> where TEntity : class
     {
-        MSSQLDBContext _context;
+        PostgreSqlDBContext _context;
 
-        public ContainerRepository(MSSQLDBContext context) : base(context : context)
+        public ContainerRepository(PostgreSqlDBContext context) : base(context : context)
         {
             _context = context;
         }

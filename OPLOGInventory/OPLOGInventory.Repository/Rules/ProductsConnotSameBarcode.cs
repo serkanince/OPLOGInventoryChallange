@@ -9,11 +9,11 @@ namespace OPLOGInventory.Repository.Rules
 {
     public class ProductsConnotSameBarcode : IBusinessRule
     {
-        private readonly MSSQLDBContext _context;
+        private readonly PostgreSqlDBContext _context;
         private readonly List<string> _barcodes;
         private string _sameBarcode;
 
-        public ProductsConnotSameBarcode(MSSQLDBContext context, List<string> barcodes)
+        public ProductsConnotSameBarcode(PostgreSqlDBContext context, List<string> barcodes)
         {
             _barcodes = barcodes;
             _context = context;

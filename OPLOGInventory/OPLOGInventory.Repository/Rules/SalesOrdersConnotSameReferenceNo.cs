@@ -8,10 +8,10 @@ namespace OPLOGInventory.Repository.Rules
 {
     public class SalesOrdersConnotSameReferenceNo : IBusinessRule
     {
-        private readonly MSSQLDBContext _context;
+        private readonly PostgreSqlDBContext _context;
         private readonly string _referenceNo;
 
-        public SalesOrdersConnotSameReferenceNo(MSSQLDBContext context, string referenceNo)
+        public SalesOrdersConnotSameReferenceNo(PostgreSqlDBContext context, string referenceNo)
         {
             _referenceNo = referenceNo;
             _context = context;

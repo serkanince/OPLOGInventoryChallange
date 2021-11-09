@@ -11,9 +11,9 @@ namespace OPLOGInventory.Repository.Dimension
 {
     public class DimensionRepository<TEntity> : RepositoryCrud<TEntity>, IDimensionRepository<TEntity> where TEntity : class
     {
-        MSSQLDBContext _context;
+        PostgreSqlDBContext _context;
 
-        public DimensionRepository(MSSQLDBContext context) : base(context: context)
+        public DimensionRepository(PostgreSqlDBContext context) : base(context: context)
         {
             _context = context;
         }
