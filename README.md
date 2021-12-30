@@ -15,6 +15,7 @@ Sample .NET Core REST API application implemented with basic Generic Repository 
 * AutoMapper 
 * OPEN API with Swagger UI
 * Db : PostgreSQL
+* Docker Support
 
 ### Architecture
 
